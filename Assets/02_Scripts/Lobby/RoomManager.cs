@@ -107,6 +107,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             Instantiate(warningPrefab, warningParent);
         }
+        
     }
     
 
@@ -185,6 +186,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     void LoadScene()
     {
+        SoundManager.instance.AS.Stop();
         SceneManager.LoadScene("InGame");
     }
 }

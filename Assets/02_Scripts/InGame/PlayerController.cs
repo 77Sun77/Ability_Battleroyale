@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     protected Animator myAnim;
     public Transform Arm;
 
-    float hp, maxHp;
+    public float hp, maxHp;
     float speed, jumpPower;
     protected bool isGround, isJump, isDoubleJump, isMove;
 
@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
 
     public PhotonView pv;
     bool isCollection;
+
+    
     public void Set_Player(int hp, float speed, float jumpPower)
     {
         this.hp = hp;
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         if (hp <= 0)
         {
             photonView.RPC("Die", RpcTarget.AllBuffered);
-            pv.RPC("ScoreUp", RpcTarget.AllBuffered);
+            if(pv != this.photonView) pv.RPC("ScoreUp", RpcTarget.AllBuffered);
         }
     }
 
@@ -155,6 +157,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
             {
                 isGround = false;
             }
+
+            if (hp > maxHp) hp = maxHp;
         }
 
         
@@ -174,6 +178,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         {
             photonView.RPC("Collection_Score", RpcTarget.AllBuffered);
             isCollection = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            ScoreUp();
         }
     }
 
@@ -304,6 +313,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void DisableGame()
     {
+        SoundManager.instance.AS.Stop();
         GameManager.instance.End(Weapon, photonView.Owner.NickName);
+        
     }
 }

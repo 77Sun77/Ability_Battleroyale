@@ -1115,6 +1115,9 @@ MonoBehaviour:
   NameText: {fileID: 4518715783628585307}
   HpImage: {fileID: 4518715783854971779}
   flip_X: 0
+  isReady: 0
+  isDisable: 0
+  pv: {fileID: 0}
 --- !u!114 &4518715783994255476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,6 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f908c1667910ccd4f9c20d4711537c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pc: {fileID: 0}
   arm: {fileID: 724538511}
   sprite: {fileID: 2408023677641805455}
   spriteArm: {fileID: 488091907}
@@ -1355,3 +1359,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   f: {fileID: 4518715783106400178}
+--- !u!114 &6852997463029738167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408023677641805455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147c8502edaa4cc4eafc24bbb5f2c77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound: {fileID: 8300000, guid: b7cc3d68d17cfc346ba591ba7b4b6db5, type: 3}

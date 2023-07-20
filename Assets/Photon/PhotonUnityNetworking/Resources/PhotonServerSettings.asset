@@ -50,6 +50,7 @@ MonoBehaviour:
   - Collection_Point
   - Collection_Score
   - DisableGame
+  - SpawnBomb
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

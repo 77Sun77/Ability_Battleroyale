@@ -31,7 +31,7 @@ public class PlayerList : MonoBehaviourPunCallbacks
                 texts.Add(child.GetComponent<Text>());
             }
         }
-        if(texts.Count != 0)
+        if(texts.Count != 0 && RoomManager.instance)
         {
             RoomManager.instance.list.texts[0].color = RoomManager.instance.MasterColor;
         }

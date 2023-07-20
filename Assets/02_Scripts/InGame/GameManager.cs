@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public CinemachineConfiner2D camera;
 
     public EndWindow endWindow;
+
+    public AudioClip music;
     public static void SettingManager(int index, PlayerController.Weapons weapon, int MapNum)
     {
         GameManager.index = index;
@@ -55,6 +57,9 @@ public class GameManager : MonoBehaviourPunCallbacks
             spawnList.Add(child);
         }
         PhotonNetwork.Instantiate("InGame/"+weapon.ToString()+"/"+ weapon.ToString() + "Char", spawnList[index].position, Quaternion.identity);
+
+        SoundManager.instance.AS.clip = music;
+        SoundManager.instance.AS.Play();
     }
 
     void Update()
@@ -74,7 +79,14 @@ public class GameManager : MonoBehaviourPunCallbacks
             Invoke("DisableText", 1);
         }
 
-        
+        if(PhotonNetwork.IsMasterClient && Input.GetKeyDown(KeyCode.Y))
+        {
+            PhotonNetwork.Instantiate("Item/HealPotion", Vector3.zero, Quaternion.identity);
+        }
+        if (PhotonNetwork.IsMasterClient && Input.GetKeyDown(KeyCode.U))
+        {
+            PhotonNetwork.Instantiate("Item/Bomb", Vector3.zero, Quaternion.identity);
+        }
     }
 
 

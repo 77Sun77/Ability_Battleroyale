@@ -29,6 +29,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public static bool isFirst;
 
+    public AudioClip startMusic, lobbyMusic;
+
 
     void Awake()
     {
@@ -41,8 +43,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         LoadingWindow.SetActive(false);
-
-        if(!isConnect && !isFirst)
+        SoundManager.instance.AS.clip=startMusic;
+        SoundManager.instance.AS.Play();
+        if (!isConnect && !isFirst)
         {
             isFirst = true;
             NameSetWindow.SetActive(true);
@@ -123,7 +126,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             LoadingWindow.SetActive(true);
             Invoke("join", 1);
         }
-        
+        SoundManager.instance.AS.clip = lobbyMusic;
+        SoundManager.instance.AS.Play();
     }
 
     void join()

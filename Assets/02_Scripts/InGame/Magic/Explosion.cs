@@ -9,6 +9,9 @@ public class Explosion : MonoBehaviourPunCallbacks, IPunObservable
     bool isHit;
     PhotonView pv;
     public Player id;
+    public float Damage;
+
+    public bool isItem;
     public void Set_Explosion(PhotonView pv)
     {
         this.pv = pv;
@@ -17,7 +20,7 @@ public class Explosion : MonoBehaviourPunCallbacks, IPunObservable
     {
         if(coll.GetComponent<PhotonView>() != null)
         {
-            if (!photonView.IsMine && coll.GetComponent<PhotonView>().IsMine && !isHit)
+            if ((isItem && photonView.IsMine && !isHit) || (!photonView.IsMine && coll.GetComponent<PhotonView>().IsMine && !isHit))
             {
                 PhotonView pv = null;
                 foreach (PlayerController player in GameManager.instance.Players)
@@ -28,7 +31,9 @@ public class Explosion : MonoBehaviourPunCallbacks, IPunObservable
                     }
                 }
                 isHit = true;
-                coll.GetComponent<PlayerController>().Hit(5f, pv);
+                if(isItem) coll.GetComponent<PlayerController>().Hit(Damage, this.pv);
+                else coll.GetComponent<PlayerController>().Hit(Damage, pv);
+
             }
         }
         

@@ -265,11 +265,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mySprite: {fileID: 8186776299438392493}
   Arm: {fileID: 8186776299897906872}
+  hp: 0
+  maxHp: 0
   Weapon: 4
   NameText: {fileID: 8186776299516801832}
   HpImage: {fileID: 0}
   flip_X: 0
   isReady: 0
+  isDisable: 0
+  pv: {fileID: 0}
   isMasterClient: 0
   nameCount: 0
 --- !u!114 &8186776299160314871

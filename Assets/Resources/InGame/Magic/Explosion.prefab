@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8403726671862257570}
   - component: {fileID: 3989172948096155042}
   - component: {fileID: 8984017688475425866}
+  - component: {fileID: 1069939980121449714}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -121,6 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763d308cea8451a4d8dc94c09ba3810e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 5
+  isItem: 0
 --- !u!114 &8403726671862257570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +184,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.9
+--- !u!114 &1069939980121449714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681138573739097193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147c8502edaa4cc4eafc24bbb5f2c77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound: {fileID: 8300000, guid: 4a59ce1aa19e1de41a7a4ad80a674d87, type: 3}
