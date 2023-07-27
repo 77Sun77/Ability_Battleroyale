@@ -7,9 +7,15 @@ using Photon.Realtime;
 public class GetItem : MonoBehaviour
 {
     public AudioClip getSound;
+    public GameObject itemPrefab;
     public virtual void Attack(PlayerController player)
     {
 
+    }
+
+    private void Start()
+    {
+        Instantiate(itemPrefab, GameObject.Find("Canvas").transform);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -214,6 +214,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3064531494935558192, guid: 325c9871d37bc3840b59ac15c13e9616, type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1307492677708741066, guid: 325c9871d37bc3840b59ac15c13e9616, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -271,6 +275,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3156599207013123910, guid: 8142e805875036a4ca2fc867ed099858, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3824004335884776397, guid: 8142e805875036a4ca2fc867ed099858, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -328,6 +336,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6047678080872998517, guid: 927276d6af12f074c9deaf9cdde8a49e, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8087416792897646010, guid: 927276d6af12f074c9deaf9cdde8a49e, type: 3}
       propertyPath: m_Name
       value: BombExplosion
@@ -375,6 +387,10 @@ PrefabInstance:
     - target: {fileID: 8087416792897646011, guid: 927276d6af12f074c9deaf9cdde8a49e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678233348626652847, guid: 927276d6af12f074c9deaf9cdde8a49e, type: 3}
+      propertyPath: sceneViewId
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 927276d6af12f074c9deaf9cdde8a49e, type: 3}

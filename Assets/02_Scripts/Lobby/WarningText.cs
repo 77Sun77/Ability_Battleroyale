@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class WarningText : MonoBehaviour
 {
+    public float timer = 2;
     void Start()
     {
-        Destroy(gameObject, 2);
+        Destroy(gameObject, timer);
     }
 
 }

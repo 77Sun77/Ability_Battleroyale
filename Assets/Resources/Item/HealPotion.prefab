@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getSound: {fileID: 8300000, guid: 2d5ddc417ddff0543ab4f48b36a555a4, type: 3}
+  itemPrefab: {fileID: 2049647686069984201, guid: 218bc807d4ca16146bae2967459ba9ff, type: 3}
   prefab: {fileID: 7179708197714335731, guid: c70ab52e9bae92042a31f061f0ca12b7, type: 3}
 --- !u!50 &1165663255331678410
 Rigidbody2D:

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject[] mapObjects;
     public Collider2D[] Ranges;
     public GameObject[] BGs;
+    public GameObject[] itemSpawns;
 
     public GameObject dieWindow;
 
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public EndWindow endWindow;
 
     public AudioClip music;
+
+    float itemTimer;
     public static void SettingManager(int index, PlayerController.Weapons weapon, int MapNum)
     {
         GameManager.index = index;
@@ -60,6 +63,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         SoundManager.instance.AS.clip = music;
         SoundManager.instance.AS.Play();
+
+        itemTimer = 0;
     }
 
     void Update()
@@ -79,16 +84,21 @@ public class GameManager : MonoBehaviourPunCallbacks
             Invoke("DisableText", 1);
         }
 
-        if(PhotonNetwork.IsMasterClient && Input.GetKeyDown(KeyCode.Y))
+
+        itemTimer += Time.deltaTime;
+
+        if(itemTimer >= 20)
         {
-            PhotonNetwork.Instantiate("Item/HealPotion", Vector3.zero, Quaternion.identity);
-        }
-        if (PhotonNetwork.IsMasterClient && Input.GetKeyDown(KeyCode.U))
-        {
-            PhotonNetwork.Instantiate("Item/Bomb", Vector3.zero, Quaternion.identity);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                int R = Random.Range(0, 2);
+                if (R == 0) PhotonNetwork.Instantiate("Item/HealPotion", itemSpawns[MapNum].transform.GetChild(Random.Range(0, 5)).transform.position, Quaternion.identity);
+                else PhotonNetwork.Instantiate("Item/Bomb", itemSpawns[MapNum].transform.GetChild(Random.Range(0, 5)).transform.position, Quaternion.identity);
+            }
+
+            itemTimer = 0;
         }
     }
-
 
     public void DisableMapWindow()
     {
