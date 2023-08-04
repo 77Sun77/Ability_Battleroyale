@@ -31,7 +31,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public AudioClip startMusic, lobbyMusic;
 
-
+    public GameObject GameQuit;
     void Awake()
     {
         
@@ -70,9 +70,19 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape) && isConnect && !Room.activeInHierarchy)
+        {
+            GameQuit.SetActive(true);
+        }
     }
-
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void CancelQuit()
+    {
+        StartCoroutine(Disable_UI(GameQuit));
+    }
     public void Set_Name(string name)
     {
         this.name = name;
