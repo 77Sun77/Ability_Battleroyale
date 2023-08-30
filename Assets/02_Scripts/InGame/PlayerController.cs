@@ -180,10 +180,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
             isCollection = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            ScoreUp();
-        }
     }
 
     protected void Move()
